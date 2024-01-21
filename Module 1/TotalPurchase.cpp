@@ -8,11 +8,13 @@ Assignment Description: Calculate the total of 5 items
  */
 
 #include <iostream>
+#include <iomanip> //Includes iomanip for the setprecision method
 
 using namespace std;
 
 int main(){
 
+    //Initalizes and instanciates variables for the problem
     double item1, item2, item3, item4, item5;
     double combinedCost, totalCost;
     double taxPercent = 0.07;
@@ -32,14 +34,13 @@ int main(){
 
     //calculates the total price of all 5 Items
     combinedCost = item1 + item2 + item3 + item4 + item5;
-    cout << combinedCost;
     //calculates the ammount of tax
     taxAmount = combinedCost * taxPercent;
     //calculates the total end price of
     totalCost = combinedCost + taxAmount;
 
     //Displays the Cost of each Item to the user
-    cout << endl << endl;
+    cout << endl << endl << fixed << setprecision(2);
     cout << "Item 1 cost = $" << item1 << " " << endl;
     cout << "Item 2 cost = $" << item2 << " " << endl;
     cout << "Item 3 cost = $" << item3 << " " << endl;
