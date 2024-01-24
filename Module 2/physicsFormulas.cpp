@@ -19,7 +19,7 @@ int main(){
     //Initalizes variables to 0 to avoid getting compile errors
     double massInKilos = 0.0;
     double velocity = 0.0;
-    double acceloration = 0.0;
+    double acceleration = 0.0;
     double height = 0.0;
 
     //----------------------------------------------------------------------------------- 
@@ -27,9 +27,6 @@ int main(){
     //Displays which calculation is about to be completed to the user
     cout << "Kinetic Energy Calculator" << endl;
     cout << "====================================" << endl;
-
-    //Saves the user's input to massinKilos
-    cin >> massInKilos;
 
     //Promts to user to enter a value representing an objects mass in kilos
     cout << "Enter the mass (in Kilos): ";
@@ -47,4 +44,30 @@ int main(){
     //Displays the result calculating kinetic energy
     cout << "Kinetic Energy = " << kineticEnergy << endl;
 
+    //Stylizing the output of for the users
+    cout << endl << "--------------------------------------------------" << endl << endl;
+    //---------------------------------------------------------------------------------------
+
+    //Displays which calculation is about to be completed to the user
+    cout << "Potential Energy Calculator" << endl;
+    cout << "====================================" << endl;
+
+    //Promts to user to enter a value representing an objects acceloration
+    cout << "Enter the acceleration (gravity being 9.08 m/s^2): ";
+    cin >> acceleration;
+    cout << endl;
+
+    //Promts the user to enter a value representing an objects height
+    cout << "Enter the height (in Meters): ";
+    cin >> height;
+    cout << endl;
+
+    //Calculates the potential energy: PE = mgh
+    potentialEnergy = massInKilos * acceleration * height;
+
+    //Displays the result calculating kinetic energy
+    cout << "Potential Energy = " << potentialEnergy << endl << endl;
+
+
+    return 0;
 }
