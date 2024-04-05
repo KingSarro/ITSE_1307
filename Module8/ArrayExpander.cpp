@@ -21,25 +21,23 @@ Contents after expand function:  4 5 6 3 1 0 0 0 0 0
 
 using namespace std;
 
-int* GetNewArray(int original[], int oriSize){
-    //creates a new array
-    int newArray[oriSize * 2];
-    unsigned int i;
+// function to generate and retrun random numbers.
+int* getDoubleCopyArray(int original[], int oriSize) {
 
-    //Runs through the original loop to copy values to new array
-    for(i = 0; i < (sizeof(original)/sizeof(int)); i++){
-        //Copies the original value to the the new array
-        newArray[i] = original[i];
-    }
-    //Sets all the new array elements to 0
-    for(i = sizeof(original); i < (oriSize*2); i++){
-        //Copies the original value to the the new array
-        newArray[i] = 0;
-    }
+   static int  r[10];
+   
+   for (int i = 0; i < (sizeof(original)); ++i) {
+      r[i] = original[i];
+      //cout << r[i] << endl;
+   }
+   for (int i = oriSize; i < (oriSize*2); ++i) {
+      r[i] = 0;
+      //cout << r[i] << endl;
+   }
 
-    //Returns the location of the first element in the new array
-    return &newArray[0];
+   return r;
 }
+
 
 main(){
     //Creates the original array
@@ -53,7 +51,8 @@ main(){
     }
     cout << endl << endl;
     //Get a pointer to the new array
-    int* newArrayLoc = GetNewArray(oriArray, oriArraySize);
+    //int* newArrayLoc = GetNewArray(oriArray, oriArraySize);
+    int* newArrayLoc = getDoubleCopyArray(oriArray, oriArraySize);
     //Loop through the array saves at the pointer location
     unsigned int i;
     //Display the new array
