@@ -1,0 +1,16 @@
+//Copide and modifies code //!*ArrayExpander
+int* getDoubleCopyArray(int original[], int oriSize) {
+
+   static int  r[10];
+   
+   for (int i = 0; i < (sizeof(original)); ++i) {
+      r[i] = original[i];
+      //cout << r[i] << endl;
+   }
+   for (int i = oriSize; i < (oriSize*2); ++i) {
+      r[i] = 0;
+      //cout << r[i] << endl;
+   }
+
+   return r;
+}
