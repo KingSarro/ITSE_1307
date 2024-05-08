@@ -1,5 +1,9 @@
 // Chapter 15, Programming Challenge 7: PersonData and CustomerData classes
 //#include "stdafx.h"
+
+#ifndef PersonCustomer_C
+#define PersonCustomer_C
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -241,3 +245,5 @@ void displayCustomer(CustomerData c)
   
    
 }
+
+#endif

@@ -39,25 +39,39 @@ private:
 public:
 	MilTime(int h = 0, int s = 0) : Time(0, 0, s)
 	{
-		if (h < 0 || h > 2359)
-		{
-			cout << "Hours must be in the range 0 - 2359.\n";
-			milHours = h;
-			milSeconds = s;
+
+		try{
+			if (h < 0 || h > 2359){
+				//Throw when an invalid hour (< 0 or > 2359) is passed to the class.
+				throw std::invalid_argument("Hours must be in range of 0 and 2359 (inclusive)");
+				//cout << "Hours must be in the range 0 - 2359.\n";
+				milHours = 0;
+				milSeconds = 0;
+			}
+			else if (s < 0 || s > 59){
+				//Throw when an invalid number of seconds (< 0 or > 59) is passed to the class.
+				throw std::invalid_argument("Seconds must be in range of 0 and 59 (inclusive)");
+				//cout << "Seconds must be in the range 0 - 59.\n";
+				milSeconds = 0;
+			}
+			else{
+				milHours = h;
+				milSeconds = s;
+			}
 			convert();
-			
 		}
-		else if (s < 0 || s > 59)
-		{
-			cout << "Seconds must be in the range 0 - 59.\n";
-			milSeconds = 0;
+
+		catch (const std::invalid_argument& e){
+			cout << e.what() << endl;
 		}
-		else
-		{
-			milHours = h;
-			milSeconds = s;
-		}
-		convert();
+		
+
+
+		
+		
+		
+		
+		
 	}
 
 	void convert()
